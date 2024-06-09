@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(private route:Router) {}
+
+
+  telalogin(){
+    this.route.navigate(['./tela-login']);
+  }
+  telacadastro(){
+    this.route.navigate(['./tela-cadastro'])
+  }
+
+  checarTipoUsuaio(){
+    //função futura que deverá ser implementada
+  }
 
 }
