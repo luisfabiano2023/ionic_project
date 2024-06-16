@@ -1,5 +1,9 @@
 ion-content {
-    --background: #f4f5f8; 
+  --background: none;
+  background-image: url('../../assets/Fundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
   }
   
   .cadastro-container {
@@ -23,8 +27,27 @@ ion-content {
     color: #333;
   }
   
-  .cadastro-button {
-    --background: #007bff;
-    --color: #fff;
-  }
+  ion-button {
+    margin-bottom: 10px;
+    --background: #DC143C;
+    --background-activated: #3171e0;
+    --background-focused: #3171e0;
+    --background-hover: #3171e0;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+ion-button:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+}
+
+ion-button:active {
+    transform: scale(0.95);
+}
   
