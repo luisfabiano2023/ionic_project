@@ -1,28 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Pagina inicial
+      Tela Inicial
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Pagina inicial</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-searchbar></ion-searchbar>
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Card Title</ion-card-title>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-  </ion-card-header>
-
-  <ion-card-content>
-    Aqui seria onde a api seria consumida pela app para mostrar os lanches disponíveis
-  </ion-card-content>
-</ion-card>
-  <app-explore-container name="Inicio"></app-explore-container>
+  <div class="content-container">
+    <h1>Seja bem-vindo ao SeparaOMeu!</h1>
+    <p>Estruturado a você cliente!</p>
+    
+    <ion-button (click)="telalogin()" expand="block">Entrar</ion-button>
+    <ion-button (click)="telacadastro()" expand="block">Cadastre-se</ion-button>
+  </div>
 </ion-content>

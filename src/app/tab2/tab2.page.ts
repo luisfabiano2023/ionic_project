@@ -8,18 +8,6 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
 
-  constructor(private route:Router) {}
-
-
-  telalogin(){
-    this.route.navigate(['./tela-login']);
-  }
-  telacadastro(){
-    this.route.navigate(['./tela-cadastro'])
-  }
-
-  checarTipoUsuaio(){
-    //função futura que deverá ser implementada
-  }
+  constructor() {}
 
 }
