@@ -16,15 +16,12 @@ const routes: Routes = [
     path: 'tela-cadastro',
     loadChildren: () => import('./tela-cadastro/tela-cadastro.module').then( m => m.TelaCadastroPageModule)
   },
-  {
-    path: 'cadastro-vendedor',
-    loadChildren: () => import('./cadastro-vendedor/cadastro-vendedor.module').then( m => m.CadastroVendedorPageModule)
-  }
+  
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
-})
+})  
 export class AppRoutingModule {}
