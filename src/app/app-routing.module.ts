@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'tela-cadastro',
     loadChildren: () => import('./tela-cadastro/tela-cadastro.module').then( m => m.TelaCadastroPageModule)
+  },  {
+    path: 'lanche',
+    loadChildren: () => import('./lanche/lanche.module').then( m => m.LanchePageModule)
   },
+
   
 ];
 @NgModule({
