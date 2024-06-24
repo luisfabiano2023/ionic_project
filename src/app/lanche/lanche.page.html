@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-title>Cadastro de Lanche</ion-title>
+  </ion-toolbar>
+  
+  <div>
+    <ion-button id="voltar">Voltar</ion-button>
+  </div>
+
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()" #lancheForm="ngForm">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" maxlength="40" [(ngModel)]="lanche.nome" name="nome" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-textarea maxlength="300" [(ngModel)]="lanche.descricao" name="descricao" required></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Preço</ion-label>
+      <ion-input type="number"  [(ngModel)]="lanche.preco" name="preco" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Categoria</ion-label>
+      <ion-select [(ngModel)]="lanche.categoria" name="categoria" required>
+        <ion-select-option value="Hamburguer">Hamburguer</ion-select-option>
+        <ion-select-option value="Sanduíche">Sanduíche</ion-select-option>
+        <ion-select-option value="Sobremesa">Sobremesa</ion-select-option>
+        <ion-select-option value="Bebida">Bebida</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item >
+      <ion-label class="id_image" >Carregar Imagem</ion-label>
+      <input type="file"  accept="image/*">
+    </ion-item>
+    <ion-button id="salvar" expand="block" type="submit" [disabled]="!lancheForm.form.valid">Salvar</ion-button>
+  </form>
+</ion-content>
