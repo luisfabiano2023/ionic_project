@@ -6,12 +6,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="content-container">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Catálogo</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Catalogo page"></app-explore-container>
+  <ion-list class="lista-lanches">
+    <ion-item *ngFor="let lanche of lanches; let i = index" class="lanche-item">
+      <div class="lanche-item-thumbnail">
+        <img [src]="lanche.imagem" *ngIf="lanche.imagem" alt="Imagem do lanche">
+      </div>
+      <div class="lanche-item-details">
+        <h2>{{ lanche.nome }}</h2>
+        <p>{{ lanche.descricao }}</p>
+      </div>
+      <div class="lanche-item-actions">
+        <ion-button fill="clear" (click)="openModal(lanche, i)">
+          <ion-icon name="create-outline"></ion-icon> Editar
+        </ion-button>
+        <ion-button fill="clear" (click)="deleteLanche(i)">
+          <ion-icon name="trash-outline"></ion-icon> Excluir
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" class="fixed-button" (click)="openModal()">
+    Cadastrar Lanche
+  </ion-button>
 </ion-content>
