@@ -54,3 +54,17 @@ ion-button:hover {
 ion-button:active {
   transform: scale(0.95);
 }
+
+.voltar-link {
+  margin-top: 20px;
+  color: #DC143C;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.voltar-link:hover {
+  text-decoration: underline;
+}
