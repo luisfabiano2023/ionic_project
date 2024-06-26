@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { CadastroLancheModalComponent } from '../cadastro-lanche-modal/cadastro-lanche-modal.component';
+import { CadastroLancheModalComponent } from '\cadastro-lanche-modal.component';
 
 @Component({
   selector: 'app-catalog',
