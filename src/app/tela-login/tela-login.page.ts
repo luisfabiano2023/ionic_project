@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-tela-login',
@@ -7,27 +8,25 @@ import { NavController, AlertController } from '@ionic/angular';
   styleUrls: ['./tela-login.page.scss'],
 })
 export class TelaLoginPage implements OnInit {
-  
+
   email: string = '';
   senha: string = '';
 
   constructor(
     private navCtrl: NavController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private authService: AuthService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   async onLogin() {
-    // Simulação básica de validação de login
-    if (this.email === 'usuario@email.com' && this.senha === 'senha123') {
-      // Lógica de login bem-sucedido
-      console.log('Login bem-sucedido!');
+    try {
+      const response = await this.authService.login(this.email, this.senha).toPromise();
+      await this.authService.setToken(response.access);
       await this.presentAlert('Login bem-sucedido!');
       this.navCtrl.navigateRoot('/'); // Redireciona para a página inicial
-    } else {
-      // Exibir um alerta de erro em caso de credenciais incorretas
+    } catch (error) {
       await this.presentAlert('Credenciais inválidas. Por favor, verifique seu email e senha.');
     }
   }
@@ -45,5 +44,5 @@ export class TelaLoginPage implements OnInit {
   voltarParaPaginaInicial() {
     this.navCtrl.navigateRoot('/');
   }
-
 }
+
