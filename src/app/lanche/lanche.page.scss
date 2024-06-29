@@ -1,56 +1,56 @@
 .custom-toolbar {
-    --background: rgb(141, 0, 28); /* Fundo vermelho */
-    text-align: center;
-  
-  
-    ion-title {
-      color: white;
-      font-weight: bold;
-      font-size: 200%;
-    }
+  --background: rgb(141, 0, 28); /* Fundo vermelho */
+  text-align: center;
+
+
+  ion-title {
+    color: white;
+    font-weight: bold;
+    font-size: 200%;
   }
-   #voltar{
-      position: fixed;
-      left: 10px; /* Ajuste conforme necessário */
-      color: white;
-      border-radius: 8px;
-      padding: 10px 20px;
-      z-index: 1000;
-    
-  }
+}
+ #voltar{
+    position: fixed;
+    left: 10px; /* Ajuste conforme necessário */
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    z-index: 1000;
   
-  ion-content {
-    --background: none;
-    background-image: url('../../assets/ComidaRapida.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+}
+
+ion-content {
+  --background: none;
+  background-image: url('../../assets/ComidaRapida.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  form {
+    margin-top: 2%;
+    margin-left: 20%;
+    border-radius: 8px;
+    max-width: 60%;
+    padding: 5px;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Alinha os itens verticalmente */
     align-items: center;
-    height: 100%;
-  
-    form {
-      margin-top: 2%;
-      margin-left: 20%;
-      border-radius: 8px;
-      max-width: 60%;
-      padding: 5px;
-      display: flex;
-      flex-direction: column; /* Alinha os itens verticalmente */
-      align-items: center;
-    }
-  
-    ion-item {
-      width: 90%;
-      background-color: rgb(255, 255, 255);
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center; /* Centraliza horizontalmente */
-    
-    }
-    #salvar {
-      width: 50%;
-      align-self: center; /* Centraliza o botão dentro do formulário */
-    }
   }
+
+  ion-item {
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+  
+  }
+  #salvar {
+    width: 50%;
+    align-self: center; /* Centraliza o botão dentro do formulário */
+  }
+}
