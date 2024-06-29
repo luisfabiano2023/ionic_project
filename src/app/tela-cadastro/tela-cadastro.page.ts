@@ -10,8 +10,10 @@ export class TelaCadastroPage {
 
   nome: string = '';
   email: string = '';
+  telefone: string = '';
+  cpfCnpj: string = '';
+  linkContato: string = '';
   senha: string = '';
-  confirmarSenha: string = '';
 
   constructor(
     private navCtrl: NavController,
@@ -19,7 +21,7 @@ export class TelaCadastroPage {
   ) { }
 
   onCadastro() {
-    // Lógica para cadastro aqui (simulação básica)
+    // Simulação básica de cadastro
     console.log('Cadastro realizado com sucesso!');
     this.presentAlert('Cadastro realizado com sucesso!');
     // Redireciona para a página inicial
