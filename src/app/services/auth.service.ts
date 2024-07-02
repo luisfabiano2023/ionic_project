@@ -1,39 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Storage } from '@ionic/storage-angular';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8000'; // substitua pelo URL da sua API
-  private _storage: Storage | null = null;
 
-  constructor(private http: HttpClient, private storage: Storage) {
-    this.init();
+  constructor(private http: HttpClient) {
+  }
+  private Url = environment.apiUrl
+  login(loginData: { email: string; password: string }): Observable<any>  {
+
+    return this.http.post(`${this.Url}api/token/`, loginData)
+
   }
 
-  async init() {
-    const storage = await this.storage.create();
-    this._storage = storage;
+  saveToken(token: string) {
+    localStorage.setItem('access_token', token);
   }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login/`, { username, password });
+  async getToken(): Promise <string | null> {
+    return localStorage.getItem('access_token');
   }
 
-  async setToken(token: string) {
-    await this._storage?.set('access_token', token);
-  }
-
-  async getToken() {
-    return await this._storage?.get('access_token');
-  }
-
-  async logout() {
-    await this._storage?.remove('access_token');
+  isAuthenticated(): boolean {
+    const token = this.getToken();
+    return token != null;
   }
 }
-
-

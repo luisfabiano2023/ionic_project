@@ -1,50 +1,31 @@
-// src/app/services/api.service.ts
-
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { Injectable } from '@angular/core'; // Importa o decorator Injectable do Angular
+import { HttpClient } from '@angular/common/http'; // Importa o cliente HTTP do Angular
+import { Observable } from 'rxjs'; // Importa a classe Observable do RxJS
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // Declara que este serviço será fornecido na raiz da aplicação
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:8000'; // substitua pelo URL da sua API
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {} // Injeta o HttpClient no construtor
 
-  private async getHeaders() {
-    const token = await this.authService.getToken();
-    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  // Método genérico para requisições GET
+  get<T>(url: string): Observable<T> {
+    return this.http.get<T>(url); // Faz a requisição GET e retorna um Observable
   }
 
-  async getVendors(): Promise<Observable<any>> {
-    const headers = await this.getHeaders();
-    return this.http.get(`${this.apiUrl}/listar/vendedores/`, { headers });
+  // Método genérico para requisições POST
+  post<T>(url: string, body: any): Observable<T> {
+    return this.http.post<T>(url, body); // Faz a requisição POST com o corpo fornecido e retorna um Observable
   }
 
-  async createVendor(data: any): Promise<Observable<any>> {
-    const headers = await this.getHeaders();
-    return this.http.post(`${this.apiUrl}/criar/vendedor/`, data, { headers });
+  // Método genérico para requisições PUT
+  put<T>(url: string, body: any): Observable<T> {
+    return this.http.put<T>(url, body); // Faz a requisição PUT com o corpo fornecido e retorna um Observable
   }
 
-  async getProducts(): Promise<Observable<any>> {
-    const headers = await this.getHeaders();
-    return this.http.get(`${this.apiUrl}/listar/produtos/`, { headers });
-  }
-
-  async createProduct(data: any): Promise<Observable<any>> {
-    const headers = await this.getHeaders();
-    return this.http.post(`${this.apiUrl}/criar/produto/`, data, { headers });
-  }
-
-  async getClients(): Promise<Observable<any>> {
-    const headers = await this.getHeaders();
-    return this.http.get(`${this.apiUrl}/listar/clientes/`, { headers });
-  }
-
-  async createClient(data: any): Promise<Observable<any>> {
-    const headers = await this.getHeaders();
-    return this.http.post(`${this.apiUrl}/criar/cliente/`, data, { headers });
+  // Método genérico para requisições DELETE
+  delete<T>(url: string): Observable<T> {
+    return this.http.delete<T>(url); // Faz a requisição DELETE e retorna um Observable
   }
 }

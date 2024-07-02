@@ -9,27 +9,27 @@
     <form (ngSubmit)="onEditar()" class="cadastro-form">
       <ion-item class="cadastro-input">
         <ion-label position="floating" class="cadastro-label">Vendedor</ion-label>
-        <ion-input type="text" [(ngModel)]="nome_vendedor" name="nome_vendedor" required></ion-input>
+        <ion-input type="text" [(ngModel)]="vendedorData.user.username" name="nome_vendedor" required></ion-input>
       </ion-item>
 
       <ion-item class="cadastro-input">
         <ion-label position="floating" class="cadastro-label">Email</ion-label>
-        <ion-input type="email" [(ngModel)]="email_vendedor" name="email_vendedor" required></ion-input>
+        <ion-input type="email" [(ngModel)]="vendedorData.user.email" name="email_vendedor" required></ion-input>
       </ion-item>
 
       <ion-item class="cadastro-input">
         <ion-label position="floating" class="cadastro-label">Telefone</ion-label>
-        <ion-input type="tel" [(ngModel)]="telefone_vendedor" name="telefone_vendedor" required></ion-input>
+        <ion-input type="tel" [(ngModel)]="vendedorData.telefone_vendedor" name="telefone_vendedor" required></ion-input>
       </ion-item>
 
       <ion-item class="cadastro-input">
         <ion-label position="floating" class="cadastro-label">CPF/CNPJ</ion-label>
-        <ion-input type="text" [(ngModel)]="cpf_cnpj_vendedor" name="cpf_cnpj_vendedor" required></ion-input>
+        <ion-input type="text" [(ngModel)]="vendedorData.cpf_cnpj_vendedor" name="cpf_cnpj_vendedor" required></ion-input>
       </ion-item>
 
       <ion-item class="cadastro-input">
         <ion-label position="floating" class="cadastro-label">Link de Contato</ion-label>
-        <ion-input type="url" [(ngModel)]="link_contato" name="link_contato" required></ion-input>
+        <ion-input type="url" [(ngModel)]="vendedorData.link_contato" name="link_contato" required></ion-input>
       </ion-item>
 
       <ion-button expand="full" type="submit" class="cadastro-button">Editar</ion-button>

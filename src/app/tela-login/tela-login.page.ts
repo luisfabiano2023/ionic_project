@@ -1,34 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-login',
   templateUrl: './tela-login.page.html',
   styleUrls: ['./tela-login.page.scss'],
+
 })
-export class TelaLoginPage implements OnInit {
+export class TelaLoginPage {
 
-  email: string = '';
-  senha: string = '';
+  loginData: any = {
+    "email": "",
+    "password": ""
+  }
 
-  constructor(
-    private navCtrl: NavController,
-    private alertController: AlertController,
-    private authService: AuthService
-  ) { }
+  constructor(private alertController: AlertController,
+    private userService: AuthService,
+    private router: Router) { }
 
-  ngOnInit() { }
 
-  async onLogin() {
-    try {
-      const response = await this.authService.login(this.email, this.senha).toPromise();
-      await this.authService.setToken(response.access);
-      await this.presentAlert('Login bem-sucedido!');
-      this.navCtrl.navigateRoot('/'); // Redireciona para a página inicial
-    } catch (error) {
-      await this.presentAlert('Credenciais inválidas. Por favor, verifique seu email e senha.');
+
+  onLogin() {
+    debugger;
+    this.userService.login(this.loginData).subscribe((res: any) => {
+      debugger;
+      console.log('Response from API:', res);
+      if (res.access) { // Verifique se o token foi retornado
+        alert('Login Success');
+        this.userService.saveToken(res.access); // Salve o token no LocalStorage
+        this.router.navigateByUrl('/');
+      } else {
+        this.presentAlert(res.message);
+      }
     }
+    );
   }
 
   async presentAlert(message: string) {
@@ -42,7 +49,6 @@ export class TelaLoginPage implements OnInit {
   }
 
   voltarParaPaginaInicial() {
-    this.navCtrl.navigateRoot('/');
+    this.router.navigateByUrl('/');
   }
 }
-

@@ -5,8 +5,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule } from '@ionic/storage-angular';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,13 +17,13 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     IonicModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    IonicStorageModule.forRoot()
+    HttpClientModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [AuthService,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 
 
