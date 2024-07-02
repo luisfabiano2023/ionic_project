@@ -1,6 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>PERFIL</ion-title>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="voltarParaPaginaInicial()" id="criar lanche">Criar Lanche</ion-button>
+      <ion-button  id="sair">Sair</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -33,7 +37,7 @@
       </ion-item>
 
       <ion-button expand="full" type="submit" class="cadastro-button">Editar</ion-button>
-      <ion-button expand="full" (click)="onExcluir()" class="cadastro-button">Excluir</ion-button>
+      <ion-button expand="full" (click)="onExcluir()" class="cadastro-button">Excluir Perfil</ion-button>
     </form>
   </div>
 </ion-content>

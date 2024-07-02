@@ -53,4 +53,7 @@ export class Tab2Page implements OnInit {
     });
   }
 
+  voltarParaPaginaInicial() {
+    this.router.navigateByUrl('/lanche');
+  }
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-lanche',
@@ -8,13 +10,15 @@ import { Component } from '@angular/core';
 export class LanchePage {
   lanche = {
     nome: '',
+    preco: '',
     descricao: '',
-    preco: 0,
     categoria: '',
+    status: '',
     imagem: null
   };
 
-  constructor() { }
+  constructor( private router: Router) { }
+  
 
 
 
@@ -22,4 +26,9 @@ export class LanchePage {
     console.log('Lanche cadastrado:', this.lanche);
     // Aqui você pode adicionar a lógica para enviar os dados do formulário para o servidor
   }
+
+  voltarParaPaginaInicial() {
+    this.router.navigateByUrl('/');
+  }
+
 }

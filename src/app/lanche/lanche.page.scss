@@ -1,22 +1,12 @@
-.custom-toolbar {
-  --background: rgb(141, 0, 28); /* Fundo vermelho */
-  text-align: center;
+#voltar {
+  position: fixed;
+  left: 10px;
+  /* Ajuste conforme necessário */
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  z-index: 1000;
 
-
-  ion-title {
-    color: white;
-    font-weight: bold;
-    font-size: 200%;
-  }
-}
- #voltar{
-    position: fixed;
-    left: 10px; /* Ajuste conforme necessário */
-    color: white;
-    border-radius: 8px;
-    padding: 10px 20px;
-    z-index: 1000;
-  
 }
 
 ion-content {
@@ -37,20 +27,48 @@ ion-content {
     max-width: 60%;
     padding: 5px;
     display: flex;
-    flex-direction: column; /* Alinha os itens verticalmente */
+    flex-direction: column;
+    /* Alinha os itens verticalmente */
     align-items: center;
   }
 
   ion-item {
-    width: 90%;
+    width: 65%;
     background-color: rgb(255, 255, 255);
     margin-bottom: 20px;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-  
+    justify-content: center;
+    /* Centraliza horizontalmente */
+
   }
+
   #salvar {
     width: 50%;
-    align-self: center; /* Centraliza o botão dentro do formulário */
+    align-self: center;
+    /* Centraliza o botão dentro do formulário */
   }
+}
+
+ion-button {
+  margin-bottom: 10px;
+  --background: #DC143C;
+  --background-activated: #3171e0;
+  --background-focused: #3171e0;
+  --background-hover: #3171e0;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+ion-button:hover {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+
+ion-button:active {
+  transform: scale(0.95);
 }
