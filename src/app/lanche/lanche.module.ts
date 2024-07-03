@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { LanchePageRoutingModule } from './lanche-routing.module';
-
 import { LanchePage } from './lanche.page';
+import { LanchePageRoutingModule } from './lanche-routing.module';
 
 @NgModule({
   imports: [

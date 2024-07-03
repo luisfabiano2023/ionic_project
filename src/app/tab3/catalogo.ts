@@ -1,29 +1,30 @@
-import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { CadastroLancheModalComponent } from '\cadastro-lanche-modal.component';
+import { Component, OnInit } from '@angular/core';
+import { LancheService, Lanche } from 'src/app/lanche/lanche.service';
 
 @Component({
-  selector: 'app-catalog',
-  templateUrl: './catalog.page.html',
-  styleUrls: ['./catalog.page.scss'],
+  selector: 'app-cardapio',
+  templateUrl: './cardapio.page.html',
+  styleUrls: ['./cardapio.page.scss'],
 })
-export class CatalogPage {
-  lanches: { nome: string, descricao: string }[] = [];
+export class CardapioPage implements OnInit {
+  lanches: Lanche[] = [];
 
-  constructor(private modalController: ModalController) {}
+  constructor(private lancheService: LancheService) {}
 
-  async openModal() {
-    const modal = await this.modalController.create({
-      component: CadastroLancheModalComponent
-    });
+  ngOnInit() {
+    this.carregarLanches();
+  }
 
-    modal.onDidDismiss().then((data) => {
-      if (data.data) {
-        this.lanches.push(data.data);
+  carregarLanches() {
+    this.lancheService.getLanches().subscribe(
+      (data: Lanche[]) => {
+        this.lanches = data;
+      },
+      (error: any) => {
+        console.error('Erro ao carregar lanches:', error);
       }
-    });
-
-    return await modal.present();
+    );
   }
 }
+
 

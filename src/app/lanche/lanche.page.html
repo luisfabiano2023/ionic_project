@@ -6,35 +6,45 @@
   <div>
     <ion-button (click)="voltarParaPaginaInicial()" id="voltar">Voltar</ion-button>
   </div>
-
 </ion-header>
 
 <ion-content>
-  <form (ngSubmit)="onSubmit()" #lancheForm="ngForm">
+  <form (ngSubmit)="cadastrarLanche()" #lancheForm="ngForm">
     <ion-item>
-      <ion-label position="floating"> Nome </ion-label>
+      <ion-label position="floating">Nome</ion-label>
       <ion-input type="text" [(ngModel)]="lanche.nome" name="nome" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Preço</ion-label>
-      <ion-input type="text" [(ngModel)]="lanche.preco" name="preco" required></ion-input>
+      <ion-input type="number" [(ngModel)]="lanche.preco" name="preco" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Descrição</ion-label>
-      <ion-input type="text"  [(ngModel)]="lanche.descricao" name="descricao" required></ion-input>
+      <ion-input type="text" [(ngModel)]="lanche.descricao" name="descricao" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label type="text" position="floating">Categoria</ion-label>
-      <ion-input type="text"  [(ngModel)]="lanche.categoria" name="Categoria" required></ion-input>
+      <ion-label position="floating">Categoria</ion-label>
+      <ion-input type="text" [(ngModel)]="lanche.categoria" name="categoria" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label type="text" position="floating">Status</ion-label>
-      <ion-input type="text"  [(ngModel)]="lanche.status" name="Status" required></ion-input>
+      <ion-label position="floating">Status</ion-label>
+      <ion-input type="text" [(ngModel)]="lanche.status" name="status" required></ion-input>
     </ion-item>
-    <ion-item >
-      <ion-label class="id_image" >Foto do Lanche</ion-label>
-      <input type="file"  accept="image/*">
+    <ion-item>
+      <ion-label>Foto do Lanche</ion-label>
+      <input type="file" (change)="handleFileInput($event)" accept="image/*">
     </ion-item>
     <ion-button id="salvar" expand="block" type="submit">Cadastrar</ion-button>
   </form>
+
+  <ion-list>
+    <ion-item *ngFor="let lanche of lanches">
+      <ion-label>
+        <h2>{{ lanche.nome }}</h2>
+        <p>{{ lanche.descricao }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+
