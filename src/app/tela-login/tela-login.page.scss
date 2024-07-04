@@ -1,0 +1,69 @@
+ion-content {
+  --background: none;
+  background-image: url('../../assets/Fundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+  }
+  
+  .cadastro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .cadastro-form {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .cadastro-input {
+    margin-bottom: 20px;
+  }
+  
+  .cadastro-label {
+    color: #333;
+  }
+  
+  ion-button {
+    margin-bottom: 10px;
+    --background: #DC143C;
+    --background-activated: #3171e0;
+    --background-focused: #3171e0;
+    --background-hover: #3171e0;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+ion-button:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+}
+
+ion-button:active {
+    transform: scale(0.95);
+}
+
+.voltar-link {
+  margin-top: 20px;
+  color: #DC143C;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.voltar-link:hover {
+  text-decoration: underline;
+}

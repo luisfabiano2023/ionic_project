@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tela Inicial
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="content-container">
+    <h1>Seja bem-vindo ao SeparaOMeu!</h1>
+    
+    
+    <p>Já possui uma conta como vendedor? Então entre aqui.</p>
+    <ion-button (click)="telalogin()" expand="block">Entrar</ion-button>
+    <p>Quer vender na nossa plataforma? Torne-se um vendedor abaixo.</p>
+    <ion-button (click)="telacadastro()" expand="block">Cadastre seu Negócio</ion-button>
+  </div>
+</ion-content>
