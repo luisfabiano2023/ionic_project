@@ -2,3 +2,4 @@ echo "*.filter=lfs diff=lfs merge=lfs -text" > .gitattributes
 echo ".gitignore -filter" >> .gitattributes
 echo ".gitattributes -filter" >> .gitattributes
 echo ".gitmodules -filter" >> .gitattributes
+.angular/* filter=lfs diff=lfs merge=lfs -text
