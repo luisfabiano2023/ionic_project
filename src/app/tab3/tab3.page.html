@@ -1,3 +1,34 @@
+<<<<<<< HEAD
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Cardápio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let lanche of lanches">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ lanche.nome_produto }}</ion-card-title>
+            <p>Vendedor: {{ lanche.nome_vendedor }}</p>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img [src]="lanche.foto_produto"></ion-img>
+            <p>Descrição: {{ lanche.descricao_produto }}</p>
+            <p>Categoria: {{ lanche.categoria }}</p>
+            <p>Status: {{ lanche.status_produto }}</p>
+            <p>Contato: <a [href]="lanche.link_contato_vendedor">{{ lanche.link_contato_vendedor }}</a></p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+=======
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -13,3 +44,4 @@
     </ion-toolbar>
   </ion-header>
 </ion-content>
+>>>>>>> 6adaa1ee6f82fb7562501ecd44aea7b6ac4e2a0a

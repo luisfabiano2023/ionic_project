@@ -1,3 +1,53 @@
+<<<<<<< HEAD
+import { Component } from '@angular/core';
+import { LancheService } from '../services/lanche.service';
+import { Router } from '@angular/router';
+
+
+@Component({
+  selector: 'app-tab3',
+  templateUrl: './tab3.page.html',
+  styleUrls: ['./tab3.page.scss'],
+})
+export class Tab3Page {
+
+  lanches: any[] = [];
+
+  constructor(
+    private router: Router,
+    private lancheService: LancheService,
+  ) {}
+
+  ngOnInit() {
+
+  }
+
+  ionViewWillEnter() {
+    this.listarLanches();
+  }
+
+  listarLanches() {
+    this.lancheService.listarLanches().subscribe(
+      data => {
+        this.lanches = data;
+        console.log('Lanches listados com sucesso', data);
+      },
+      error => {
+        console.error('Erro ao listar lanches', error);
+      }
+    );
+  }
+
+
+
+}
+
+
+
+
+
+
+=======
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CadastroLancheModalComponent } from './cadastro-lanche-modal.component';
@@ -47,3 +97,4 @@ export class Tab3Page {
 
 
 
+>>>>>>> 6adaa1ee6f82fb7562501ecd44aea7b6ac4e2a0a
